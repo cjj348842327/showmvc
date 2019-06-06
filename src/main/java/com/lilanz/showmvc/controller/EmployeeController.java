@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.lilanz.microservice.common.entity.Result;
-import com.lilanz.microservice.common.tools.ResultUtil;
+//import com.lilanz.microservice.common.entity.Result;
+//import com.lilanz.microservice.common.tools.ResultUtil;
 import com.lilanz.showmvc.model.Employee;
 
 /**
@@ -57,11 +57,11 @@ public class EmployeeController {
 		"age":20,
 		"salary":3000.0
 	 }
-	 */
+	 
 	@PostMapping("/reqBody")
 	public @ResponseBody Result<?> reqBody(@RequestBody Employee employee) {
 		System.out.println(employee);
 		return ResultUtil.success(employee);
 	}
-	
+	*/
 }
