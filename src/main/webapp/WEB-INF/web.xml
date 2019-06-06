@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>showmvc</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!--配置SpringMVC-->
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--指定SpringMVC配置文件的位置-->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+    <!--应用已启动就init servlet-->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <!--
+      1./* 拦截所有JSP .js .png .css  真的拦截  不建议使用
+      2.*.action,*.do 拦截以action结尾的请求   肯定能使用   使用在后台
+      3./  拦截所有  不包括JSP 但是包括.js .png .css文件 强烈建议使用  使用在前台  放行静态资源
+      -->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
